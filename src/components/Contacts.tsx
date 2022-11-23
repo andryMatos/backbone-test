@@ -124,7 +124,6 @@ export const Contacts = () => {
     },[])
 
     return(
-        <Container sx={{ mb:'15px', mr:'15px' }}>
             <Box sx={{ width: '100%' }}>
                 <Paper sx={{ width: '100%', mb: 2 }}>
                     <Typography
@@ -246,6 +245,5 @@ export const Contacts = () => {
                         />
                 </Paper>
             </Box>
-        </Container>
     )
 }
