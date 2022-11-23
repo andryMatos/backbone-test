@@ -52,6 +52,7 @@ export const DeleteContact = () => {
                     severity: "success"
                 });
                 setShowDialog(false);
+                setError(true);
                 return json;
             } else {
                 const res = await response.json()
