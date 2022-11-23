@@ -7,7 +7,7 @@ export const NotFound = () => {
 
     return(
         <Container component="main">
-            <Tooltip title="Eliminar">
+            <Tooltip title="Regresar">
                 <Link to={"/"}>
                     <IconButton color="primary" tabIndex={-1}>
                         <ArrowBackIcon />
