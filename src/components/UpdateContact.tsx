@@ -41,7 +41,7 @@ export const UpdateContact = () => {
             phone: data.phone
         };
 
-        const response = postData(params, "https://bkbnchallenge.herokuapp.com/contacts/"+id);
+        postData(params, "https://bkbnchallenge.herokuapp.com/contacts/"+id);
 
         setLoading(false);
 
@@ -127,7 +127,7 @@ export const UpdateContact = () => {
             abortController.abort();
         }
 
-    },[id])
+    },[id, setValue])
 
     return(
         <Container component="main" maxWidth="xs">
@@ -178,6 +178,7 @@ export const UpdateContact = () => {
                         fullWidth
                         error = {!!errors.email}
                         helperText={errors.email && errors.email.type === 'required' ? 'El Correo es requerido' : errors.email && errors.email.type === 'pattern' ? 'El correo no tiene un formato valido' : ''}
+                        /* eslint-disable no-useless-escape */
                         {...register("email",{ required: true, pattern: /[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
                         />
                     <TextField
