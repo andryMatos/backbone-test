@@ -29,6 +29,7 @@ const useFetchAndLoad = () => {
     return () => {
       cancelEndpoint();
     };
+    // eslint-disable-next-line
   }, []);
 
   return { isLoading, callEndpoint };
