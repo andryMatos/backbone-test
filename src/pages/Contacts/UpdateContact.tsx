@@ -4,8 +4,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { ContactsRequest, Contactos } from '../../interfaces/apiInterface';
-import { Notify } from '../../interfaces/general';
+import { ContactsRequest, Contactos, Notify } from "../../models";
 import { AccountCircle } from '@mui/icons-material';
 import { useParams, useNavigate  } from "react-router-dom";
 
@@ -196,7 +195,6 @@ export const UpdateContact = () => {
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <LoadingButton
-                                disabled={error ? true: false}
                                 color="error"
                                 startIcon={<CancelIcon />}
                                 fullWidth

@@ -1,6 +1,6 @@
 import { Skeleton, Typography, TablePagination, TableHead, Paper, Box, TableContainer, Table, TableBody, TableRow, TableCell, Tooltip, IconButton, InputBase } from "@mui/material"
 import { useEffect, useState } from "react";
-import { ContactsResponse } from "../../interfaces/apiInterface";
+import { ContactsResponse } from '../../models';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';

@@ -20,8 +20,7 @@ import { Container,
     } from "@mui/material"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Contactos } from '../../interfaces/apiInterface';
-import { Notify } from '../../interfaces/general';
+import { Contactos, Notify } from '../../models';
 import { useParams, useNavigate  } from "react-router-dom";
 
 type IDContact = {

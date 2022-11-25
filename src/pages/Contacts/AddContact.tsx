@@ -7,13 +7,12 @@ import { AccountCircle } from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { ContactsRequest } from '../../interfaces/apiInterface';
 import { Alert, Button, Snackbar } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { Notify } from '../../interfaces/general';
 import { useNavigate } from 'react-router-dom';
+import { ContactsRequest, Notify } from '../../models';
 
 type Inputs = {
     firstName: string;
