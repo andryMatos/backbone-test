@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Container, Box, Snackbar, Alert, Avatar, Typography, TextField, Grid } from "@mui/material"
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { ContactsRequest, Contactos } from '../interfaces/apiInterface';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { Notify } from '../interfaces/general';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { ContactsRequest, Contactos } from '../../interfaces/apiInterface';
+import { Notify } from '../../interfaces/general';
 import { AccountCircle } from '@mui/icons-material';
 import { useParams, useNavigate  } from "react-router-dom";
 
@@ -64,7 +64,8 @@ export const UpdateContact = () => {
                     isOpen: true,
                     message: "Se ha actualizado con éxito el contacto",
                     severity: "success"
-                })
+                });
+                history("/");
                 return json;
             } else {
                 const res = await response.json()

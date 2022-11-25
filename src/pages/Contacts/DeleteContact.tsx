@@ -18,10 +18,10 @@ import { Container,
         CardActions,
         CardHeader
     } from "@mui/material"
-import { Contactos } from '../interfaces/apiInterface';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Notify } from '../interfaces/general';
+import { Contactos } from '../../interfaces/apiInterface';
+import { Notify } from '../../interfaces/general';
 import { useParams, useNavigate  } from "react-router-dom";
 
 type IDContact = {

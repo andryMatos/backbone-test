@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter,  Routes, Route } from "react-router-dom";
-import { Contacts } from './components/Contacts';
-import { ContactInfo } from './components/Contact';
-import { AddContact } from './components/AddContact';
-import { UpdateContact } from './components/UpdateContact';
-import { DeleteContact } from './components/DeleteContact';
-import { NotFound } from './components/404';
+import { Contacts } from './pages/Contacts/Contacts';
+import { ContactInfo } from './pages/Contacts/Contact';
+import { AddContact } from './pages/Contacts/AddContact';
+import { UpdateContact } from './pages/Contacts/UpdateContact';
+import { DeleteContact } from './pages/Contacts/DeleteContact';
+import { NotFound } from './pages/404';
 
 function App() {
 
