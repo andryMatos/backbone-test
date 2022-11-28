@@ -58,10 +58,6 @@ export const Contacts = () => {
         setInputSearch(e.target.value);
     }
 
-    const handleKeyUp = (e: KeyboardEvent) => {
-        console.log("e", e);
-    }
-
     const getContactByName = () => {
         const request$ =
         fetch('https://bkbnchallenge.herokuapp.com/contacts?firstName_contains='+ inputSearch)

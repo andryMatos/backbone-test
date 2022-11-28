@@ -39,7 +39,7 @@ export const ContactsTest = () => {
 
         getdata();
 
-    },[]);
+    },[dispatch, isError, message, callEndpoint]);
 
     return (
         <>
