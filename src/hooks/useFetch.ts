@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 
 const useFetchAndLoad = () => {
   const [isLoading, setLoading] = useState(false);
+  const [isError, setError] = useState(false);
+  const [message, setMessage] = useState('');
   let controller: AbortController;
 
   const callEndpoint = async (axiosCall: AxiosCall<any>) => {
@@ -12,8 +14,12 @@ const useFetchAndLoad = () => {
     let result = {} as AxiosResponse<any>;
     try {
       result = await axiosCall.call;
+      console.log("result axios try =>>>>>>", result);
     } catch (err: any) {
+      console.log("result axios =>>>>>>", err.response);
+      setMessage(err?.statusText);
       setLoading(false);
+      setError(true);
       throw err;
     }
     setLoading(false);
@@ -32,7 +38,7 @@ const useFetchAndLoad = () => {
     // eslint-disable-next-line
   }, []);
 
-  return { isLoading, callEndpoint };
+  return { isLoading, isError, message, callEndpoint };
 };
 
 export default useFetchAndLoad;

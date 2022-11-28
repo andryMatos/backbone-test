@@ -65,6 +65,7 @@ export const AddContact = () => {
                     severity: "success"
                 })
                 reset();
+                history("/");
                 return json;
             } else {
                 const res = await response.json()

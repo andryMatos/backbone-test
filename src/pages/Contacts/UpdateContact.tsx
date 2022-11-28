@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Box, Snackbar, Alert, Avatar, Typography, TextField, Grid } from "@mui/material"
+import { Container, Box, Snackbar, Alert, Avatar, Typography, TextField, Grid, Skeleton } from "@mui/material"
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -92,7 +92,6 @@ export const UpdateContact = () => {
     }
 
     useEffect(() => {
-
         const abortController = new AbortController();
         const getData = async () => {
             const signal = abortController.signal;
@@ -117,6 +116,7 @@ export const UpdateContact = () => {
                     return response;
                 }
             }catch(error){
+                setLoading(false);
                 setError(false);
             }
         }
@@ -127,7 +127,17 @@ export const UpdateContact = () => {
             abortController.abort();
         }
 
-    },[id, setValue])
+    },[id, setValue]);
+
+    if(loading){
+        return (
+            <>
+                <Skeleton variant="circular" width={40} height={40} />
+                <Skeleton variant="rectangular" width={210} height={60} />
+                <Skeleton variant="rounded" width={210} height={60} />
+            </>
+        )
+    }
 
     return(
         <Container component="main" maxWidth="xs">
@@ -157,36 +167,35 @@ export const UpdateContact = () => {
                         focused
                         margin="normal"
                         required
-                        label="Nombre*"
                         fullWidth
                         error = {!!errors.firstName}
                         helperText={errors.firstName ? 'El nombre es requerido' : ''}
                         {...register("firstName", { required: true })}/>
+                    <label>Apellido</label>
                     <TextField
                         margin="normal"
                         required
-                        label="Apellido*"
                         fullWidth
                         error = {!!errors.lastName}
                         helperText={errors.lastName ? 'El apellido es requerido' : ''}
                         {...register("lastName", { required: true })}
                         />
+                    <label>Email</label>
                     <TextField
                         margin="normal"
                         required
-                        label="Email*"
                         fullWidth
                         error = {!!errors.email}
                         helperText={errors.email && errors.email.type === 'required' ? 'El Correo es requerido' : errors.email && errors.email.type === 'pattern' ? 'El correo no tiene un formato valido' : ''}
                         /* eslint-disable no-useless-escape */
                         {...register("email",{ required: true, pattern: /[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
                         />
+                    <label>Número telefonico</label>
                     <TextField
                         margin="normal"
                         required
                         fullWidth
                         id="phone"
-                        label="Número telefonico"
                         inputProps={{ type: 'number',pattern: '[0-9]*' }}
                         error = {!!errors.phone}
                         helperText={errors.phone && errors.phone.type === 'required'  ? 'El número telefonico es requerido' : errors.phone && errors.phone.type === 'maxLength' ? "El número telefonico no puede ser mayor a 10 números" : errors.phone && errors.phone.type === "minLength" ? 'El número telefonico debe tener 10 números' : ""}

@@ -1,5 +1,5 @@
 import { Skeleton, Typography, TablePagination, TableHead, Paper, Box, TableContainer, Table, TableBody, TableRow, TableCell, Tooltip, IconButton, InputBase } from "@mui/material"
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ContactsResponse } from '../../models';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
@@ -58,6 +58,10 @@ export const Contacts = () => {
         setInputSearch(e.target.value);
     }
 
+    const handleKeyUp = (e: KeyboardEvent) => {
+        console.log("e", e);
+    }
+
     const getContactByName = () => {
         const request$ =
         fetch('https://bkbnchallenge.herokuapp.com/contacts?firstName_contains='+ inputSearch)
@@ -85,9 +89,6 @@ export const Contacts = () => {
             .catch((error) => {
                 setLoading(false);
             })
-            .finally(() =>{
-                setLoading(false);
-            });
     }
 
     useEffect(() => {
@@ -151,6 +152,7 @@ export const Contacts = () => {
                                 placeholder="Buscar contactos por nombre"
                                 inputProps={{ 'aria-label': 'Buscar contacto por nombre' }}
                                 onChange={handleChangeSearch}
+                                onKeyPress={(event) => {console.log("event =>>>>>>>>>>>>>", event)}}
                             />
                             <IconButton onClick={() => getContactByName()} type="button" sx={{ p: '10px' }} aria-label="search">
                                 <SearchIcon />

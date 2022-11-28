@@ -17,3 +17,12 @@ export const getContactById = (id: string | undefined) => {
         controller
     }
 }
+
+export const saveContact = (data: {} | undefined) => {
+    const controller = loadAbort();
+    return {
+        call: axios.post<Contacto>('https://bkbnchallenge.herokuapp.com/contacts/', data, {signal: controller.signal}),
+        controller
+    }
+}
+
